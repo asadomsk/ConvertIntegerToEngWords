@@ -20,7 +20,13 @@ public class ConverterNumToWords {
 
 
      public static String convert(final int num) {
-        if (num < 13)
+         if (num == 0) {
+             return "zero";
+         }
+         if (num < 0) {
+             return "minus " + convert(num);
+         }
+         if (num < 13)
             return  convertUnits(num);
          if ((num < 16 || num== 18) && num!= 14)
              return  convertSpecialUnits(num%10) + "teen";
